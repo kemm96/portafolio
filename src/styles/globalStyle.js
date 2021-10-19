@@ -13,8 +13,7 @@ const GlobalStyle = createGlobalStyle`
       font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
       Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
       line-height: 1.6;
-      font-size: 8px;
-      background-color: #eeeeee;
+      font-size: 10px;
       overflow-x: hidden; 
    }
    a{
@@ -23,29 +22,26 @@ const GlobalStyle = createGlobalStyle`
    }
    li{
       list-style-type: none;
-}
-
+   }
    /* ******************************************************************************** */
    @media (min-width: 512px) {
-      html,
-      body{
-         font-size: 10px;
-      }
-   }
-
-   /* ******************************************************************************** */
-   @media (min-width: 768px) {
       html,
       body{
          font-size: 12px;
       }
    }
-
+   /* ******************************************************************************** */
+   @media (min-width: 768px) {
+      html,
+      body{
+         font-size: 14px;
+      }
+   }
    /* ******************************************************************************** */
    @media (min-width: 1024px) {
       html,
       body{
-         font-size: 14px;
+         font-size: 16px;
       }
    }
 `;

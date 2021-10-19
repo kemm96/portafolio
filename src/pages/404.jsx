@@ -11,7 +11,7 @@ const Container = styled.div`
    justify-content:center;
    align-items: center;
    flex-direction: column;
-   background-color: #000001;
+   background-color: #00000e;
 `
 const H2 = styled.h2`
    font-size: 12rem;
@@ -35,7 +35,8 @@ const A = styled(Link)`
    margin-top: 2rem;
    @media (min-width: 768px) {
       :hover{
-         background-color: #ee000033;
+         background-color: #550000;
+         color:#eeeeee;
       }
    }
 `
