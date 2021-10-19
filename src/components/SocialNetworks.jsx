@@ -46,7 +46,7 @@ const A = styled.a`
 `
 /****** ******************** *****/
 
-const SocialNetworksComponent = (props) =>{
+const SocialNetworksComponent = () =>{
    return(
       <Container>
          <Ul>
