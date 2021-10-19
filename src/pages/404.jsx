@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { LayoutComponent } from '../components';
 import { Link } from "gatsby"
+import InfoContext from '../context/InfoContext';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -43,14 +44,22 @@ const A = styled(Link)`
 /****** ******************** *****/
 
 const NotFoundPage = () => {
+
+   const info = {
+      name:'404',
+      title:'Page not found',
+   }
+
    return(
-      <LayoutComponent>
-         <Container>
-            <H2>404</H2>
-            <Span>Page not found</Span>
-            <A to="/" >GO HOME</A>
-         </Container>
-      </LayoutComponent>
+      <InfoContext.Provider value={info}>
+         <LayoutComponent>
+            <Container>
+               <H2>{info.name}</H2>
+               <Span>{info.title}</Span>
+               <A to="/" >GO HOME</A>
+            </Container>
+         </LayoutComponent>
+      </InfoContext.Provider>
    )
 }
 

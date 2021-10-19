@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
+import InfoContext from '../context/InfoContext';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -32,22 +33,27 @@ const Cursor = styled.div`
 /****** ******************** *****/
 
 const LogoComponent = () => {
+
+   const info = useContext(InfoContext);
+
    return(
       <Container>
-         <Link to="/">
+         {console.log(info)}
+         <Link to='/'>
             <Top>
-               <Span color="#ee0000">┌──[</Span>
-               <Span color="#eeeeee">Kevin </Span>
-               <Span color="#ee0000">㉿</Span>
-               <Span color="#eeeeee">Moyano</Span>
-               <Span color="#ee0000">]─[</Span>
-               <Span color="#00ee00">~</Span>
-               <Span color="#ee0000">]</Span>
+               <Span color='#ee0000'>┌──[</Span>
+               <Span color='#eeeeee'>Kevin </Span>
+               <Span color='#ee0000'>㉿</Span>
+               <Span color='#eeeeee'>Moyano</Span>
+               <Span color='#ee0000'>]─[</Span>
+               <Span color='#00ee00'>~</Span>
+               <Span color='#ee0000'>]</Span>
             </Top>
             <Bottom>
-               <Span color="#ee0000">└──[</Span>
-               <Span color="#ee0000">]──</Span>
-               <Span color="#00ee00">$</Span>
+               <Span color='#ee0000'>└──[</Span>
+               <Span color='#00ee00'>{info.name}</Span>
+               <Span color='#ee0000'>]──</Span>
+               <Span color='#00ee00'>$</Span>
                <Cursor/>
             </Bottom>  
          </Link>
