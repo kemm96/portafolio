@@ -1,25 +1,26 @@
 {
-  "name": "portafolio",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Portafolio",
-  "author": "kemoyano23",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "babel-plugin-styled-components": "^1.13.3",
-    "gatsby": "^3.14.3",
-    "gatsby-plugin-styled-components": "^4.14.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "styled-components": "^5.3.3"
-  }
+   "name": "portafolio",
+   "version": "1.0.0",
+   "private": true,
+   "description": "My personal web site",
+   "author": "ke.moyano23",
+   "keywords": [
+      "gatsby"
+   ],
+   "scripts": {
+      "develop": "gatsby develop",
+      "start": "gatsby develop",
+      "build": "gatsby build",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean"
+   },
+   "dependencies": {
+      "babel-plugin-styled-components": "^1.13.3",
+      "gatsby": "^3.14.3",
+      "gatsby-plugin-styled-components": "^4.14.0",
+      "react": "^17.0.1",
+      "react-dom": "^17.0.1",
+      "react-icons": "^4.3.1",
+      "styled-components": "^5.3.3"
+   }
 }
