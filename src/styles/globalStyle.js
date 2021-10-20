@@ -17,6 +17,14 @@ const GlobalStyle = createGlobalStyle`
       overflow-x: hidden; 
       background-color:#eeeeee;
    }
+   body::-webkit-scrollbar{
+      width: .2rem;
+      background-color: #000000;
+   }
+   body::-webkit-scrollbar-thumb{
+      background: #ee0000;
+      border-radius: .4rem;
+   }
    a{
       text-decoration: none;
       color: inherit;
