@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import GlobalStyle from '../styles/globalStyle'
-import { LogoComponent, SocialNetworksComponent, NavComponent } from '.';
+import { LogoComponent, NavComponent, SocialNetworksComponent, Seo } from '.';
 
 /***** Component style *****/
 const Header = styled.header`
@@ -31,6 +31,7 @@ const LayoutComponent = (props) => {
    return(
       <>
          <GlobalStyle/>
+         <Seo/>
          <Header>
             <LogoComponent/>
             <NavComponent/>
