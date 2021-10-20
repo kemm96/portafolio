@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby'
 import InfoContext from '../../context/InfoContext';
+import BlackContext from '../../context/BlackContext';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -18,6 +19,10 @@ const Bottom = styled.div`
 `
 const Span = styled.span`
    color:${props => props.color};
+
+   ${({ black }) => black && `
+      color:#000001;
+   `}
  `
 const cursor = keyframes`
    0% {background-color: transparent;}
@@ -35,16 +40,16 @@ const Cursor = styled.div`
 const LogoComponent = () => {
 
    const info = useContext(InfoContext);
+   const color = useContext(BlackContext);
 
    return(
       <Container>
-         {console.log(info)}
          <Link to='/'>
             <Top>
                <Span color='#ee0000'>┌──[</Span>
-               <Span color='#eeeeee'>Kevin </Span>
+               <Span color='#eeeeee' black={color.header}>Kevin </Span>
                <Span color='#ee0000'>㉿</Span>
-               <Span color='#eeeeee'>Moyano</Span>
+               <Span color='#eeeeee' black={color.header}>Moyano</Span>
                <Span color='#ee0000'>]─[</Span>
                <Span color='#00ee00'>~</Span>
                <Span color='#ee0000'>]</Span>

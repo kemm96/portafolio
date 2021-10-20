@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import GlobalStyle from '../../styles/globalStyle'
 import { FooterComponent, FrontComponent, LogoComponent, NavComponent, Seo, SocialNetworksComponent } from './';
 import { FaArrowCircleDown } from 'react-icons/fa';
+import BlackContext from '../../context/BlackContext';
 
 /***** Component style *****/
 const Header = styled.header`
@@ -17,7 +18,9 @@ const Header = styled.header`
 `
 const Aside = styled.aside`
    display:none;
-   @media (min-width: 1024px) {
+   
+   @media (min-width: 1024px) {   
+      color: #eeeeee;
       position: fixed;
       bottom: 12vh;
       left: 0;
@@ -40,28 +43,113 @@ const arrow = keyframes`
    100%{transform: scale(1);}
 `
 const Arrow = styled.div`
+   animation: ${arrow} 1s infinite;
    position:fixed;
-   animation: ${arrow} 1.5s infinite;
    bottom:11vh;
    right:4vw;
    color:#eeeeee;
    font-size:2rem;
    transition: .3s;
-   /* transform:rotate(180deg); */
-   @media (min-width: 1024px) {
-      :hover{
-         transform: scale(1.3);
-         animation:none;
-         transition:.3s;
-         color:#ee0000;
+
+   ${({ black }) => black && `
+      animation: none;
+      transform: rotate(180deg);
+      color:#000001;
+
+      @media (min-width: 1024px) {
+         :hover{
+            transform: rotate(180deg) scale(1.3);
+            color:#ee0000;
+            transition:.3s;
+         }
       }
-   }
+   `}
 `
 /****** ******************** *****/
 
 const LayoutComponent = (props) => {
+
+   const [black, setBlack] = useState({
+      header:false,
+      gitHub:false,
+      instagram:false,
+      linkedin:false,
+      twitter:false,
+      arrow:false
+   });
+
+   const changeBlack = () =>{
+      if(window.scrollY >= 115){
+         setBlack({
+            ...black,
+            twitter:true,
+            arrow:true
+         }) 
+         if(window.scrollY >= 165){
+            setBlack({
+               ...black,
+               linkedin:true,
+               twitter:true,
+               arrow:true
+            })
+            if(window.scrollY >= 215){
+               setBlack({
+                  ...black,
+                  instagram:true,
+                  linkedin:true,
+                  twitter:true,
+                  arrow:true
+               })
+               if(window.scrollY >= 265){
+                  setBlack({
+                     ...black,
+                     gitHub:true,
+                     instagram:true,
+                     linkedin:true,
+                     twitter:true,
+                     arrow:true
+                  })
+                  if(window.scrollY >= window.innerHeight -30){
+                     setBlack({
+                        ...black,
+                        header:true,
+                        gitHub:true,
+                        instagram:true,
+                        linkedin:true,
+                        twitter:true,
+                        arrow:true
+                     }) 
+                  }
+               } 
+            } 
+         }
+      }else{
+         setBlack({
+            ...black,
+            twitter:false,
+            arrow:false
+         }) 
+      }
+   }
+
+   useEffect(() => {
+      changeBlack();
+      window.addEventListener("scroll", changeBlack)
+      return () => {
+         window.removeEventListener("scroll", changeBlack)
+      }
+   }, [])
+
+   const color = {
+      header:black.header,
+      gitHub:black.gitHub,
+      instagram:black.instagram,
+      linkedin:black.linkedin,
+      twitter:black.twitter,
+   }
+
    return(
-      <>
+      <BlackContext.Provider value={color}>
          <GlobalStyle/>
          <Seo/>
          <Header>
@@ -82,12 +170,12 @@ const LayoutComponent = (props) => {
                <Footer>
                   <FooterComponent/>
                </Footer>
-               <Arrow>
+               <Arrow black={black.arrow}>
                   <FaArrowCircleDown/>
                </Arrow>
             </>   
          ) : "" }
-      </>
+      </BlackContext.Provider>
    )
 }
 

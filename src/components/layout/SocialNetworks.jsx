@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import BlackContext from '../../context/BlackContext';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -34,9 +35,12 @@ const A = styled.a`
    display:flex;
    font-size: 2rem;
    transition: transform .3s;
-   color:#eeeeee;
    
    @media (min-width: 1024px) {
+      ${({ black }) => black && `
+         color:#000001;
+      `}
+
       :hover{
          transform: scale(1.3);
          transition: transform .3s;
@@ -47,27 +51,30 @@ const A = styled.a`
 /****** ******************** *****/
 
 const SocialNetworksComponent = () =>{
+
+   const color = useContext(BlackContext);
+
    return(
       <Container>
          <Ul>
             <Li>
-               <A href='https://github.com/kemoyano23' target='blanck'>
+               <A href='https://github.com/kemoyano23' target='blanck' black={color.gitHub}>
                   <FaGithub/>
                </A>
             </Li>
             <Li>
-               <A href='https://www.instagram.com/ke.moyano23/' target='blanck'>
+               <A href='https://www.instagram.com/ke.moyano23/' target='blanck' black={color.instagram}>
                   <FaInstagram/>
                </A>
             </Li>
             <Li>
                <A href='https://www.linkedin.com/in/kemoyano23/?trk=public-profile-badge-profile-badge-view-profile-cta&originalSubdomain=cl' 
-                  target='blanck'>
+                  target='blanck' black={color.linkedin}>
                   <FaLinkedin/>
                </A>
             </Li>
             <Li>
-               <A href='https://twitter.com/kemoyano23' target='blanck'>
+               <A href='https://twitter.com/kemoyano23' target='blanck' black={color.twitter}>
                   <FaTwitter/>
                </A>
             </Li>

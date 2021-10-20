@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import { SocialNetworksComponent } from './';
 import { Link } from "gatsby"
 import { FaEquals } from 'react-icons/fa';
+import BlackContext from '../../context/BlackContext';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -40,11 +41,13 @@ const Nav = styled.nav`
       transition: 0.5s;
    `}
    @media (min-width: 1024px) {
-      color:${props => props.black && !props.index ? "#111111" : ""};
       position: relative;
       background-color: transparent;
       transition: 0s;
       transform: translate3d(0, 0, 0);
+      ${({ black }) => black && `
+         color:#000001;
+      `}
    }
 `
 const Ul = styled.ul`
@@ -87,11 +90,12 @@ const Li = styled.li`
 const NavComponent = () =>{
 
    const [show,updateShow] = useState(false);
+   const color = useContext(BlackContext);
 
    return(
       <Container>
          <Button onClick={() => updateShow(!show)}><FaEquals/></Button>
-         <Nav show={show}>
+         <Nav show={show} black={color.header}>
             <Ul>
                <Li show={show}><Link to="/">HOME</Link></Li>
                <Li show={show}><Link to="/about">ABOUT</Link></Li>
