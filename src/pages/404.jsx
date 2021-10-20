@@ -12,7 +12,7 @@ const Container = styled.div`
    justify-content:center;
    align-items: center;
    flex-direction: column;
-   background-color: #00000e;
+   background-color: #000001;
 `
 const H2 = styled.h2`
    font-size: 12rem;
@@ -52,7 +52,7 @@ const NotFoundPage = () => {
 
    return(
       <InfoContext.Provider value={info}>
-         <LayoutComponent>
+         <LayoutComponent front={false}>
             <Container>
                <H2>{info.name}</H2>
                <Span>{info.title}</Span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import GlobalStyle from '../../styles/globalStyle'
-import { LogoComponent, NavComponent, SocialNetworksComponent, Seo } from './';
+import { FrontComponent, LogoComponent, NavComponent, SocialNetworksComponent, Seo } from './';
 
 /***** Component style *****/
 const Header = styled.header`
@@ -37,6 +37,13 @@ const LayoutComponent = (props) => {
             <NavComponent/>
          </Header>
          <main>
+            {(props.front) ? (
+               <FrontComponent
+                  title={props.title}
+                  image={props.image} 
+                  alt={props.name}
+               />
+            ) : "" }
             {props.children}
          </main>
          <Aside>

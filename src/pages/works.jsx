@@ -7,11 +7,12 @@ const Works = () => {
    const info = {
       name:'Works',
       title:"Some Works I'Ve Done",
+      image:'works.jpg'
    }
 
    return(
       <InfoContext.Provider value={info}>
-         <LayoutComponent>
+         <LayoutComponent front={true}>
             
          </LayoutComponent>
       </InfoContext.Provider>

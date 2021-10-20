@@ -7,11 +7,12 @@ const Contact = () => {
    const info = {
       name:'Contact',
       title:'Get In Touch',
+      image:'contact.jpg'
    }
 
    return(
       <InfoContext.Provider value={info}>
-         <LayoutComponent>
+         <LayoutComponent front={true}>
             
          </LayoutComponent>
       </InfoContext.Provider>
