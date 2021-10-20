@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import GlobalStyle from '../styles/globalStyle'
-import { LogoComponent, NavComponent, SocialNetworksComponent, Seo } from '.';
+import GlobalStyle from '../../styles/globalStyle'
+import { LogoComponent, NavComponent, SocialNetworksComponent, Seo } from './';
 
 /***** Component style *****/
 const Header = styled.header`

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
-import InfoContext from '../context/InfoContext';
+import InfoContext from '../../context/InfoContext';
  
 const Seo = () => {
    const query = useStaticQuery(graphql`query {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { SocialNetworksComponent } from '.';
+import { SocialNetworksComponent } from './';
 import { Link } from "gatsby"
 import { FaEquals } from 'react-icons/fa';
 

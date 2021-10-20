@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby'
-import InfoContext from '../context/InfoContext';
+import InfoContext from '../../context/InfoContext';
 
 /***** Component style *****/
 const Container = styled.div`
