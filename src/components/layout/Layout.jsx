@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import GlobalStyle from '../../styles/globalStyle'
-import { FooterComponent, FrontComponent, LogoComponent, NavComponent, Seo, SocialNetworksComponent } from './';
-import { FaArrowCircleDown } from 'react-icons/fa';
+import { ArrowComponent, FooterComponent, FrontComponent, LogoComponent, NavComponent, Seo, SocialNetworksComponent } from './';
 import BlackContext from '../../context/BlackContext';
-
 /***** Component style *****/
 const Header = styled.header`
    position: fixed;
@@ -37,34 +35,6 @@ const Footer = styled.footer`
    height:10vh;
    margin: 1.5rem 0;
 `
-const arrow = keyframes`
-   0%{transform: scale(1);}
-   50%{transform: scale(.8);}
-   100%{transform: scale(1);}
-`
-const Arrow = styled.div`
-   animation: ${arrow} 1s infinite;
-   position:fixed;
-   bottom:11vh;
-   right:4vw;
-   color:#eeeeee;
-   font-size:2rem;
-   transition: .3s;
-
-   ${({ black }) => black && `
-      animation: none;
-      transform: rotate(180deg);
-      color:#000001;
-
-      @media (min-width: 1024px) {
-         :hover{
-            transform: rotate(180deg) scale(1.3);
-            color:#ee0000;
-            transition:.3s;
-         }
-      }
-   `}
-`
 /****** ******************** *****/
 
 const LayoutComponent = (props) => {
@@ -79,54 +49,59 @@ const LayoutComponent = (props) => {
    });
 
    const changeBlack = () =>{
-      if(window.scrollY >= 115){
+      if(window.scrollY >= 80){
          setBlack({
             ...black,
-            twitter:true,
             arrow:true
          }) 
-         if(window.scrollY >= 165){
+         if(window.scrollY >= 115){
             setBlack({
                ...black,
-               linkedin:true,
                twitter:true,
                arrow:true
-            })
-            if(window.scrollY >= 215){
+            }) 
+            if(window.scrollY >= 165){
                setBlack({
                   ...black,
-                  instagram:true,
                   linkedin:true,
                   twitter:true,
                   arrow:true
                })
-               if(window.scrollY >= 265){
+               if(window.scrollY >= 215){
                   setBlack({
                      ...black,
-                     gitHub:true,
                      instagram:true,
                      linkedin:true,
                      twitter:true,
                      arrow:true
                   })
-                  if(window.scrollY >= window.innerHeight -30){
+                  if(window.scrollY >= 265){
                      setBlack({
                         ...black,
-                        header:true,
                         gitHub:true,
                         instagram:true,
                         linkedin:true,
                         twitter:true,
                         arrow:true
-                     }) 
-                  }
+                     })
+                     if(window.scrollY >= window.innerHeight -30){
+                        setBlack({
+                           ...black,
+                           header:true,
+                           gitHub:true,
+                           instagram:true,
+                           linkedin:true,
+                           twitter:true,
+                           arrow:true
+                        }) 
+                     }
+                  } 
                } 
-            } 
+            }
          }
       }else{
          setBlack({
             ...black,
-            twitter:false,
             arrow:false
          }) 
       }
@@ -146,6 +121,7 @@ const LayoutComponent = (props) => {
       instagram:black.instagram,
       linkedin:black.linkedin,
       twitter:black.twitter,
+      arrow:black.arrow,
    }
 
    return(
@@ -158,7 +134,10 @@ const LayoutComponent = (props) => {
          </Header>
          <main>
             {(props.front) ? (
-               <FrontComponent/>
+               <>
+                  <FrontComponent/>
+                  <ArrowComponent/>
+               </>
             ) : "" }
             {props.children}
          </main>
@@ -166,14 +145,9 @@ const LayoutComponent = (props) => {
             <SocialNetworksComponent/>
          </Aside>
          {(props.front) ? (
-            <>
                <Footer>
                   <FooterComponent/>
                </Footer>
-               <Arrow black={black.arrow}>
-                  <FaArrowCircleDown/>
-               </Arrow>
-            </>   
          ) : "" }
       </BlackContext.Provider>
    )
