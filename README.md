@@ -2,7 +2,7 @@
    kevinmoyano.com
 </h1>
 <p align="center">
-   This is a project built with <a href="https://www.gatsbyjs.com/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify </a>🚀.
+   This is my website built with <a href="https://www.gatsbyjs.com/" target="_blank">Gatsby</a> and hosted with <a href="https://www.netlify.com/" target="_blank">Netlify </a>🚀.
 </p>
 
 <br/>
