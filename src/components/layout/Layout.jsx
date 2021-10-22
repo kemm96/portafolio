@@ -27,6 +27,13 @@ const Aside = styled.aside`
       width: 8vw;
    }
 `
+const Main = styled.main`
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   width:100vw;
+   min-height:200vh;
+`
 const Footer = styled.footer`
    display:flex;
    align-items:center;
@@ -132,7 +139,7 @@ const LayoutComponent = (props) => {
             <LogoComponent/>
             <NavComponent/>
          </Header>
-         <main>
+         <Main>
             {(props.front) ? (
                <>
                   <FrontComponent/>
@@ -140,7 +147,7 @@ const LayoutComponent = (props) => {
                </>
             ) : "" }
             {props.children}
-         </main>
+         </Main>
          <Aside>
             <SocialNetworksComponent/>
          </Aside>
