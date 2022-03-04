@@ -34,19 +34,18 @@ const Skills = styled.div`
       width:80%;
    }
 `
-const Half = styled.div`
+const Grid = styled.div`
+   display:grid;
    width:100%;
-   height:100%;
-   display:flex;
-   flex-direction:column;
+   grid-column-gap: 4%;
    @media (min-width: 1024px) {
-      width:47%;
+      grid-template-columns: 48% 48%
    }
 `
 const Skill = styled.div`
    width:100%;
    display:flex;
-   margin-bottom:2rem;
+   margin-bottom:3rem;
 `
 const Logo = styled.div`
    display:flex;
@@ -67,12 +66,12 @@ const Nombre = styled.div`
    align-items:center;
 `
 const Name = styled.span`
-   margin-right:1rem;
+   margin-right:.5rem;
    font-size:1.3rem;
 `
 const Date = styled.span`
-   font-size:.9rem;
-   margin-right:1rem;
+   font-size:.8rem;
+   margin-right:.5rem;
 `
 const Barra = styled.div`
    position:relative;
@@ -94,7 +93,7 @@ const Barra = styled.div`
 
 const SkillsComponent = (props) => {
 
-   const firstHalf = [
+   const skills = [
       {  
          name:'HTML5',
          logo:<FaHtml5/>,
@@ -116,9 +115,6 @@ const SkillsComponent = (props) => {
          percent:'80%',
          color:'#ead41c'
       },
-   ]
-
-   const secondHalf = [
       {  
          name:'REACTJS',
          logo:<FaReact/>,
@@ -142,13 +138,12 @@ const SkillsComponent = (props) => {
       },
    ]
 
-
    return(
       <Container>
          <H2>2 - SKILL SET</H2>
          <Skills>
-            <Half>
-               {firstHalf.map((info, i) => (
+            <Grid>
+               {skills.map((info, i) => (
                   <Skill key={i}>
                      <Logo color={info.color}>
                         {info.logo}
@@ -170,31 +165,7 @@ const SkillsComponent = (props) => {
                      </MiniContainer>
                   </Skill>
                ))}
-            </Half>
-            <Half>
-               {secondHalf.map((info, i) => (
-                  <Skill key={i}>
-                     <Logo color={info.color}>
-                        {info.logo}
-                     </Logo>
-                     <MiniContainer>
-                        <Nombre>
-                           <div>
-                              <Name>{info.name}</Name>
-                              {info.date.años >> 0 ? (
-                                 <Date>{info.date.años} {info.date.años >> 1 ? 'YEARS' : 'YEAR'}</Date>
-                              ): null}
-                              {info.date.meses >> 0 ? (
-                                 <Date>{info.date.meses} {info.date.meses >> 1 ? 'MONTHS' : 'MONTH'}</Date>
-                              ): null}
-                           </div>
-                           {info.percent}
-                        </Nombre>
-                        <Barra color={info.color} width={info.percent}/>
-                     </MiniContainer>
-                  </Skill>
-               ))}
-            </Half>
+            </Grid>
          </Skills>
       </Container>
    )
