@@ -9,7 +9,7 @@ const Container = styled.div`
    display:flex;
    flex-direction:column;
    justify-content:center;
-   padding:8rem 0 8rem 0;
+   padding-top:10rem;
    @media (min-width: 1024px) {
       flex-direction:row;
    }
@@ -22,7 +22,7 @@ const FirstHalf = styled.div`
    width:100%;
    height:100%;
    display:flex;
-   padding:0 0 5% 15%;
+   padding:5% 15%;
    @media (min-width: 1024px) {
       padding:0;
       width:40%;
@@ -36,18 +36,23 @@ const SecondtHalf = styled.div`
    font-size:1.1rem;
    text-align: justify;
    padding:5% 15%;
+   & > p{
+      margin-bottom:5rem
+   }
    & > p span{
       font-size:1.3rem;
+   }
+   & > div{
+      box-shadow: 10px 10px 20px #111111;
    }
    @media (min-width: 1024px) {
       padding:0;
       width:40%;
       height:100%;
+      & > div{
+         box-shadow: 20px 20px 30px #111111;
+      }
    }
-`
-const ImageContainer = styled.div`
-   margin-top:5rem;
-   width:100%;
 `
 /****** ******************** *****/
 
@@ -56,7 +61,7 @@ const WhoIAmComponent = (props) => {
    return(
       <Container>
          <FirstHalf>
-            <H2>WHO I AM</H2>
+            <H2>1 - WHO I AM</H2>
          </FirstHalf>
          <SecondtHalf>
             <p>
@@ -66,13 +71,11 @@ const WhoIAmComponent = (props) => {
                I am constantly improving my programming techniques and learning new technologies.
                Currently, I am focused on building accessible products for several companies.
             </p>
-            <ImageContainer>
-               <ImageComponent 
-                  image='profile.jpg'
-                  alt='Kevin Moyano'
-                  title='Kevin Moyano'
-               />
-            </ImageContainer>
+            <ImageComponent 
+               image='profile.jpg'
+               alt='Kevin Moyano'
+               title='Kevin Moyano'
+            />            
          </SecondtHalf>
       </Container>
    )
