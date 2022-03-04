@@ -1,6 +1,6 @@
 import React from 'react';   
 import styled from 'styled-components';
-import { FaCss3, FaHtml5, FaJsSquare, FaReact, FaAngular, FaNodeJs } from 'react-icons/fa';
+import { FaCss3, FaHtml5, FaJsSquare, FaReact, FaAngular, FaNodeJs, FaDatabase } from 'react-icons/fa';
 import fecha from '../utils/fecha';
 
 /***** Component style *****/
@@ -97,14 +97,14 @@ const SkillsComponent = (props) => {
       {  
          name:'HTML5',
          logo:<FaHtml5/>,
-         date: fecha('2/1/2020'),
+         date: fecha('9/1/2020'),
          percent:'95%',
          color:'#e35d22'
       },
       {  
          name:'CSS3',
          logo:<FaCss3/>,
-         date: fecha('3/1/2020'),
+         date: fecha('9/1/2020'),
          percent:'90%',
          color:'#2071f2'
       },
@@ -118,16 +118,9 @@ const SkillsComponent = (props) => {
       {  
          name:'REACTJS',
          logo:<FaReact/>,
-         date: fecha('2/1/2021'),
+         date: fecha('6/1/2021'),
          percent:'40%',
          color:'#61dafb'
-      },
-      {  
-         name:'NODEJS',
-         logo:<FaNodeJs/>,
-         date: fecha('6/1/2021'),
-         percent:'45%',
-         color:'#689f63'
       },
       {  
          name:'ANGULAR',
@@ -135,6 +128,20 @@ const SkillsComponent = (props) => {
          date: fecha('11/1/2021'),
          percent:'50%',
          color:'#dd0031'
+      },
+      {  
+         name:'NODEJS',
+         logo:<FaNodeJs/>,
+         date: fecha('11/1/2021'),
+         percent:'45%',
+         color:'#689f63'
+      },
+      {  
+         name:'MYSQL',
+         logo:<FaDatabase/>,
+         date: fecha('12/1/2021'),
+         percent:'60%',
+         color:'#005c84'
       },
    ]
 
