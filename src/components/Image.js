@@ -5,12 +5,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const ImageComponent = (props) => {
 
    const imageQuery = useStaticQuery(graphql`query{
-      allFile(filter: {ext: {regex: "/(jpg)/"}}) {
+      allFile(filter: {absolutePath: {regex: "/images/"}}) {
          edges {
             node {
                base
                childImageSharp {
-                  gatsbyImageData(transformOptions: {fit: COVER})
+                  gatsbyImageData(transformOptions: {fit: COVER})id
                }
             }
          }

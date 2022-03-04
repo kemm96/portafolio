@@ -12,7 +12,10 @@ const Header = styled.header`
    display:flex;
    justify-content:space-between;
    color: #eeeeee;
-   height:10vh;
+   height:8vh;
+   ${({ background }) => background && `
+      background-color:#eeeeee;
+   `}
 `
 const Aside = styled.aside`
    display:none;
@@ -31,8 +34,6 @@ const Main = styled.main`
    display:flex;
    flex-direction:column;
    align-items:center;
-   width:100vw;
-   min-height:200vh;
 `
 const Footer = styled.footer`
    display:flex;
@@ -40,7 +41,7 @@ const Footer = styled.footer`
    justify-content:center;
    width: 100%;
    height:10vh;
-   margin: 1.5rem 0;
+   margin: 1rem;
 `
 /****** ******************** *****/
 
@@ -56,7 +57,7 @@ const LayoutComponent = (props) => {
    });
 
    const changeBlack = () =>{
-      if(window.scrollY >= 80){
+      if(window.scrollY >= 65){
          setBlack({
             ...black,
             arrow:true
@@ -135,7 +136,7 @@ const LayoutComponent = (props) => {
       <BlackContext.Provider value={color}>
          <GlobalStyle/>
          <Seo/>
-         <Header>
+         <Header background={black.header}>
             <LogoComponent/>
             <NavComponent/>
          </Header>

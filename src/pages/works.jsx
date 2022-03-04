@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';   
+import React from 'react';   
 import styled from 'styled-components';
 import { LayoutComponent, WorksComponent } from '../components';
 import InfoContext from '../context/InfoContext';
+import { graphql } from 'gatsby'
 
 /***** Component style *****/
 const H2 = styled.h2`
@@ -9,36 +10,58 @@ const H2 = styled.h2`
    font-size:2.5rem;
    margin: 3rem;
 `
+const Container = styled.div`
+   display:flex;
+   margin-bottom:3rem;
+   min-width:min-content;
+   max-width:80%;
+   justify-content:center;
+   flex-wrap:wrap;
+`
 /****** ******************** *****/
 
-const Works = () => {
+const Works = ({ data }) => {
 
-   const[workList, setWorkList] = useState(null);
+   const projects = data.allMarkdownRemark.edges;
 
    const info = {
       name:'Works',
-      title:"Some Works I'Ve Done",
+      title:"SOME WORKS I'VE DONE",
       image:'works.jpg'
    }
 
-   useEffect(() => {
-      // get data from GitHub api
-      fetch(`https://api.github.com/users/kemoyano23/repos`)
-         .then(response => response.json())
-         .then(data => {
-            setWorkList(data)
-         })
-   }, [])
-
    return(
       <InfoContext.Provider value={info}>
-         {console.log(workList)}
          <LayoutComponent front={true}>
-            <H2>Noteworthy Projects</H2>
-            <WorksComponent/>
+            <H2>NOTEWORTHY PROJECTS</H2>
+            <Container>
+               {projects.map((info, i) => (
+                  <WorksComponent key={i} data={info}/>
+               ))}
+            </Container>
          </LayoutComponent>
       </InfoContext.Provider>
    )
 }
+
+export const query = graphql`query{
+   allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex: "/projects/"}}
+      sort: {fields: frontmatter___title, order: ASC}
+   ){
+      edges {
+         node {
+            frontmatter {
+               date
+               external
+               github
+               tech
+               title
+               description
+            }
+         }
+      }
+   }
+}`
 
 export default Works

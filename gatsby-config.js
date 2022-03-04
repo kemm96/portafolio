@@ -24,8 +24,19 @@ module.exports = {
          resolve: `gatsby-source-filesystem`,
          options: {
            name: `images`,
-           path: `${__dirname}/src/images`,
+           path: `${__dirname}/content/images`,
          },
       },
+      {
+         resolve: `gatsby-source-filesystem`,
+         options: {
+           name: `projects`,
+           path: `${__dirname}/content/projects`,
+         },
+       },
+       {
+         resolve: `gatsby-transformer-remark`,
+         plugins: [],
+       },
    ],
 };

@@ -6,12 +6,16 @@ import BlackContext from '../../context/BlackContext';
 /***** Component style *****/
 const Arrow = styled.div`
    position:fixed;
+   display:flex;
+   justify-content:center;
+   cursor: pointer;
    bottom:5vh;
-   right:5vh;
+   right:0;
    color:#eeeeee;
-   font-size:2.5rem;
+   font-size:3rem;
    transition: .5s;
    z-index:100;
+   width:8vw;
 
    @media (min-width: 1024px) {
       :hover{
@@ -49,10 +53,9 @@ const ArrowComponent = () => {
 
    const bottom = () => {
       window.scrollTo({
-         top:window.innerHeight,
+         top:window.innerHeight / 2,
          behavior:'smooth'
       });
-      console.log("hola")
    }
 
    return(
