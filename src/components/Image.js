@@ -24,7 +24,7 @@ const ImageComponent = (props) => {
    const image = getImage(data.node)
 
    return (
-      <GatsbyImage image={image} alt={props.alt}/>
+      <GatsbyImage image={image} alt={props.alt} title={props.title}/>
    )
 }
 

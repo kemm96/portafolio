@@ -14,7 +14,7 @@ const Arrow = styled.div`
    color:#eeeeee;
    font-size:3rem;
    transition: .5s;
-   z-index:100;
+   z-index:90;
    width:8vw;
 
    @media (min-width: 1024px) {

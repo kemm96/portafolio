@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 const Button = styled.div`
    position: relative;
-   z-index: 1;
+   z-index: 110;
    cursor: pointer;
    font-size:2.5rem;
    display: flex;
@@ -25,6 +25,7 @@ const Button = styled.div`
    }
 `
 const Nav = styled.nav`
+   z-index: 100;
    position: fixed;
    top: 0;
    left: 0;
