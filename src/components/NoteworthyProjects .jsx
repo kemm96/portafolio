@@ -48,7 +48,7 @@ const Arrow = styled.div`
    align-items:center;
    cursor: pointer;
    font-size:2rem;
-   z-index:100000;
+   z-index:10;
    font-weight:lighter;
    height:100%;
    position:absolute;
