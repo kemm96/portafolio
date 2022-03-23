@@ -1,28 +1,30 @@
 import React from 'react';   
 import styled from 'styled-components';
-import { LayoutComponent, WorksComponent } from '../components';
+import { LayoutComponent, OthersProjectsComponent, NoteworthyProjectsComponent  } from '../components';
 import InfoContext from '../context/InfoContext';
 import { graphql } from 'gatsby'
 
 /***** Component style *****/
-const H2 = styled.h2`
-   color: #000001;
-   font-size:2.5rem;
-   margin: 3rem;
-`
 const Container = styled.div`
    display:flex;
-   margin-bottom:3rem;
-   min-width:min-content;
-   max-width:80%;
-   justify-content:center;
-   flex-wrap:wrap;
+   width:84vw;
+   flex-direction:column;
 `
 /****** ******************** *****/
 
 const Works = ({ data }) => {
 
    const projects = data.allMarkdownRemark.edges;
+   const neteworthyProjects = [];
+   const otherProjects = [];
+
+   for(let aux of projects){
+      if (aux.node.frontmatter.featured) {
+         neteworthyProjects.push(aux)
+      }else{
+         otherProjects.push(aux)
+      }
+   }
 
    const info = {
       name:'Works',
@@ -33,11 +35,9 @@ const Works = ({ data }) => {
    return(
       <InfoContext.Provider value={info}>
          <LayoutComponent front={true}>
-            <H2>NOTEWORTHY PROJECTS</H2>
             <Container>
-               {projects.map((info, i) => (
-                  <WorksComponent key={i} data={info}/>
-               ))}
+               <NoteworthyProjectsComponent  data={neteworthyProjects}/> 
+               <OthersProjectsComponent data={otherProjects}/>
             </Container>
          </LayoutComponent>
       </InfoContext.Provider>
@@ -58,6 +58,8 @@ export const query = graphql`query{
                tech
                title
                description
+               featured
+               img
             }
          }
       }

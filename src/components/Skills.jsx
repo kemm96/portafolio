@@ -1,7 +1,7 @@
 import React from 'react';   
 import styled from 'styled-components';
 import { FaCss3, FaHtml5, FaJsSquare, FaReact, FaAngular, FaNodeJs, FaDatabase } from 'react-icons/fa';
-import fecha from '../utils/fecha';
+import { fecha } from '../utils/';
 
 /***** Component style *****/
 const Container = styled.div`
@@ -91,7 +91,7 @@ const Barra = styled.div`
 `
 /****** ******************** *****/
 
-const SkillsComponent = (props) => {
+const SkillsComponent = () => {
 
    const skills = [
       {  

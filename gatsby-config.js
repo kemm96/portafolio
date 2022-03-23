@@ -33,10 +33,16 @@ module.exports = {
            name: `projects`,
            path: `${__dirname}/content/projects`,
          },
-       },
-       {
+      },
+      {
          resolve: `gatsby-transformer-remark`,
          plugins: [],
-       },
+      },
+      {
+         resolve: `gatsby-plugin-manifest`,
+         options: {
+            icon: 'content/images/logo.png',
+         },
+      },
    ],
 };

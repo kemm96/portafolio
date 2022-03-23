@@ -1,5 +1,6 @@
 export { default as LayoutComponent } from './layout/Layout'
 export { default as ImageComponent } from './Image'
-export { default as WorksComponent } from './Works'
+export { default as OthersProjectsComponent } from './OthersProjects'
 export { default as WhoIAmComponent } from './WhoIAm'
 export { default as SkillsComponent } from './Skills'
+export { default as NoteworthyProjectsComponent  } from './NoteworthyProjects '

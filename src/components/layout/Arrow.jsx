@@ -53,7 +53,7 @@ const ArrowComponent = () => {
 
    const bottom = () => {
       window.scrollTo({
-         top:window.innerHeight / 2,
+         top:window.innerHeight,
          behavior:'smooth'
       });
    }

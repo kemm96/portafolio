@@ -18,12 +18,12 @@ const GlobalStyle = createGlobalStyle`
       background-color:#eeeeee;
    }
    body::-webkit-scrollbar{
-      width: .2rem;
+      width: .5rem;
       background-color: #000000;
    }
    body::-webkit-scrollbar-thumb{
       background: #ee0000;
-      border-radius: .4rem;
+      border-radius: .5rem;
    }
    a{
       text-decoration: none;

@@ -26,4 +26,6 @@ const fecha = (info) => {
    return data
 }
 
-export default fecha
+module.exports = {
+   fecha,
+};

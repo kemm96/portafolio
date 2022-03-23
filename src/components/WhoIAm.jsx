@@ -56,7 +56,7 @@ const SecondtHalf = styled.div`
 `
 /****** ******************** *****/
 
-const WhoIAmComponent = (props) => {
+const WhoIAmComponent = () => {
 
    return(
       <Container>
