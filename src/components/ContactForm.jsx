@@ -126,7 +126,7 @@ const ContactFormComponent = () => {
    }
    
    const handleSubmit = (e) => {
-      /* fetch('/', {
+      fetch('/', {
          method: 'POST',
          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
          body: encode({ 'form-name': 'contact', ...formState })
@@ -140,7 +140,7 @@ const ContactFormComponent = () => {
          });
          setSendState(true);
          setButtonState(false);
-      }).catch(error => alert(error)); */
+      }).catch(error => alert(error));
       setFormState({
          ...formState,
          name:'',
@@ -182,7 +182,7 @@ const ContactFormComponent = () => {
                      onChange={handleChange}
                      value={formState.name}
                      placeholder="Enter your name" 
-                     /* required */
+                     required
                   />
                   </ContainerInput>
                   <ContainerInput>
@@ -194,7 +194,7 @@ const ContactFormComponent = () => {
                      onChange={handleChange}
                      value={formState.email}
                      placeholder="Enter your email" 
-                     /* required */
+                     required
                   />
                   </ContainerInput>
                   <ContainerInput>
@@ -206,7 +206,7 @@ const ContactFormComponent = () => {
                      value={formState.message}
                      placeholder="Enter your message"
                      rows="5"
-                     /* required */
+                     required
                   ></TextArea>
                   </ContainerInput>
                   <ReCAPTCHA
