@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       background-color: transparent;
       user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
    }
    html,
    body{
@@ -15,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
       line-height: 1.6;
       font-size: 10px;
       overflow-x: hidden; 
-      background-color:#eeeeee;
+      background-color:#f9f9f9;
    }
    body::-webkit-scrollbar{
       width: .5rem;
@@ -31,6 +34,9 @@ const GlobalStyle = createGlobalStyle`
    }
    li{
       list-style-type: none;
+   }
+   .rc-anchor-light{
+      background-color:transparent !important;
    }
    /* ******************************************************************************** */
    @media (min-width: 512px) {

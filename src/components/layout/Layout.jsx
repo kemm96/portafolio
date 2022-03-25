@@ -14,7 +14,7 @@ const Header = styled.header`
    color: #eeeeee;
    height:8vh;
    ${({ background }) => background && `
-      background-color:#eeeeee;
+      background-color:#f9f9f9;
    `}
 `
 const Aside = styled.aside`
@@ -41,6 +41,7 @@ const Footer = styled.footer`
    justify-content:center;
    width: 100%;
    height:10vh;
+   max-height:10vh;
    margin: 1rem;
 `
 /****** ******************** *****/
