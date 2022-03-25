@@ -18,7 +18,7 @@ npm install
 # 💻 Development.
 ### 1. Run the development server.
 ```bash
-npm run develop
+npm start
 ``` 
 - You can view the proyect in the browser [http://localhost:8000](http://localhost:8000).
 - you can open GraphQL, an IDE in the browser, to explore the site data and schema [http://localhost:8000/___graphql]( http://localhost:8000/___graphql).
